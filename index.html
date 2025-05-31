@@ -20,16 +20,33 @@
                     </svg>
                     <h1 class="logo-text">Romana Advocacia</h1>
                 </div>
+                <button class="mobile-menu-button" aria-label="Abrir menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="menu-icon">
+                        <line x1="4" x2="20" y1="12" y2="12"></line>
+                        <line x1="4" x2="20" y1="6" y2="6"></line>
+                        <line x1="4" x2="20" y1="18" y2="18"></line>
+                    </svg>
+                </button>
                 <nav class="nav-menu">
-                    <button class="nav-button">Início</button>
-                    <button class="nav-button">Sobre</button>
-                    <button class="nav-button">Áreas de Atuação</button>
-                    <button class="nav-button">Contato</button>
+                    <a href="#inicio" class="nav-button">Início</a>
+                    <a href="#sobre" class="nav-button">Sobre</a>
+                    <a href="#areas" class="nav-button">Áreas de Atuação</a>
+                    <a href="#contato" class="nav-button">Contato</a>
                 </nav>
-                <button class="contact-button">Fale Conosco</button>
+                <a href="https://wa.me/5511999999999" target="_blank" class="contact-button">Fale Conosco</a>
             </div>
         </div>
     </header>
+
+    <div class="mobile-menu">
+        <nav class="mobile-nav">
+            <a href="#inicio" class="mobile-nav-button">Início</a>
+            <a href="#sobre" class="mobile-nav-button">Sobre</a>
+            <a href="#areas" class="mobile-nav-button">Áreas de Atuação</a>
+            <a href="#contato" class="mobile-nav-button">Contato</a>
+            <a href="https://wa.me/5511999999999" target="_blank" class="mobile-contact-button">Fale Conosco</a>
+        </nav>
+    </div>
 
     <section id="inicio" class="home-section">
         <div class="background-container">
@@ -46,13 +63,13 @@
                     Defendemos seus direitos com ética, dedicação e expertise jurídica. Sua confiança é nossa maior responsabilidade.
                 </p>
                 <div class="button-group">
-                    <button class="primary-button">
+                    <a href="https://wa.me/5511999999999" target="_blank" class="primary-button">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
                             <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
                         </svg>
                         Fale Conosco
-                    </button>
-                    <button class="secondary-button">Conheça Nossa História</button>
+                    </a>
+                    <a href="#sobre" class="secondary-button">Conheça Nossa História</a>
                 </div>
             </div>
         </div>
@@ -234,12 +251,12 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="whatsapp-button">
+                        <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-button">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
                                 <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"></path>
                             </svg>
                             WhatsApp
-                        </button>
+                        </a>
                     </div>
                 </div>
                 <div class="map-container">
@@ -310,5 +327,27 @@
             </div>
         </div>
     </footer>
+    <script>
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const mobileNavButtons = document.querySelectorAll('.mobile-nav-button');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        mobileNavButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!mobileMenu.contains(event.target) && !mobileMenuButton.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html> 
